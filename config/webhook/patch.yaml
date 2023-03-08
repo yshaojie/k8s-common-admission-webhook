@@ -1,0 +1,20 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: mutating-webhook-configuration
+webhooks:
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: k8s-common-admission-webhook-webhook-service
+        namespace: system
+    failurePolicy: Fail
+    name: xy.meteor.io
+    sideEffects: NoneOnDryRun
+    objectSelector:
+      matchExpressions:
+        - key: control-plane
+          operator: NotIn
+          values:
+            - "controller-manager"

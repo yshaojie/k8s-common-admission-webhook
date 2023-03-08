@@ -12,7 +12,7 @@ namePrefix: k8s-common-admission-webhook-
 #commonLabels:
 #  someName: someValue
 
-bases:
+resources:
 #- ../crd
 - ../rbac
 - ../manager

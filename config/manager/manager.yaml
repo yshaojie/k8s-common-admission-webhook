@@ -100,3 +100,14 @@ spec:
             memory: 64Mi
       serviceAccountName: controller-manager
       terminationGracePeriodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webhook-service
+spec:
+  selector:
+    name: controller-manager
+  ports:
+    - port: 9443
+  type: ClusterIP
