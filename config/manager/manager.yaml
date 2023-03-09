@@ -72,6 +72,8 @@ spec:
         - --leader-elect
         image: controller:latest
         name: manager
+        #kind测试必须设置为IfNotPresent
+        imagePullPolicy: IfNotPresent
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
